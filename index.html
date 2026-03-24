@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="scroll-smooth no-scrollbar" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASDR Lab | Advanced Surfaces and Device Research</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "outline": "#6e797a",
+          "secondary-fixed-dim": "#c8c6c6",
+          "secondary": "#5f5e5e",
+          "on-secondary-fixed-variant": "#474747",
+          "error": "#ba1a1a",
+          "on-error": "#ffffff",
+          "surface-tint": "#00696e",
+          "surface-container-highest": "#e3e2e2",
+          "surface-bright": "#faf9f9",
+          "secondary-fixed": "#e4e2e1",
+          "on-secondary-container": "#656464",
+          "surface-variant": "#e3e2e2",
+          "inverse-on-surface": "#f1f0f0",
+          "surface": "#faf9f9",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#7cd5da",
+          "inverse-surface": "#2f3131",
+          "surface-container-lowest": "#ffffff",
+          "on-surface": "#1a1c1c",
+          "surface-container": "#eeeeee",
+          "on-tertiary-container": "#fffcfb",
+          "tertiary": "#5c5c5c",
+          "outline-variant": "#bdc9c9",
+          "on-primary-fixed": "#002021",
+          "on-primary-container": "#f3ffff",
+          "background": "#faf9f9",
+          "surface-container-high": "#e8e8e8",
+          "on-surface-variant": "#3e4949",
+          "tertiary-fixed": "#e5e2e1",
+          "tertiary-container": "#757474",
+          "surface-container-low": "#f4f3f3",
+          "on-background": "#1a1c1c",
+          "on-primary-fixed-variant": "#004f53",
+          "tertiary-fixed-dim": "#c8c6c5",
+          "primary-fixed": "#98f1f6",
+          "on-secondary-fixed": "#1b1c1c",
+          "on-tertiary-fixed-variant": "#474746",
+          "secondary-container": "#e4e2e1",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#1a8186",
+          "primary": "#00666b",
+          "primary-fixed-dim": "#7cd5da",
+          "on-error-container": "#93000a",
+          "surface-dim": "#dadada",
+          "on-tertiary-fixed": "#1b1c1c",
+          "on-secondary": "#ffffff"
+        },
+        fontFamily: {
+          "headline": ["Manrope"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .hero-gradient {
+    background: linear-gradient(135deg, #00666b 0%, #1a8186 100%);
+  }
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .nav-link {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3e4949;
+    transition: color 0.2s;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00666b;
+    transition: width 0.2s;
+  }
+  .nav-link:hover { color: #00666b; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #00666b; }
+  .nav-link.active::after { width: 100%; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased !bg-white no-scrollbar">
+
+<!-- Top Navigation Bar -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="font-headline font-extrabold text-primary text-lg tracking-tight">ASDR</span>
+      <span class="font-headline font-medium text-on-surface-variant text-sm hidden sm:block">Lab</span>
+    </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <a href="members.html" class="nav-link">Members</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-4">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <a href="members.html" class="nav-link">Members</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-16">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[870px] flex items-center overflow-hidden px-8">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="z-10 space-y-8">
+        <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.1]">
+          Advancing <span class="text-primary italic">Surfaces.</span><br/>
+          Empowering <span class="text-primary">Devices.</span>
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-lg leading-relaxed">
+          The Advanced Surface Devices Research Lab aims to expand our knowledge on new/known materials, to design functional surfaces, and to develop devices utilizing various surfaces.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="research.html">
+            <button class="hero-gradient text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-base shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+              Explore Our Research
+            </button>
+          </a>
+          <a href="publications.html">
+            <button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-base hover:bg-surface-container-highest transition-colors">
+              View Publications
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-square rounded-full overflow-hidden border-[16px] border-surface-container-low shadow-2xl relative">
+          <img alt="High-fidelity scientific visualization of a triboelectric nanogenerator (TENG) interface" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqv8o5dLa3KjVpMIuKGfMV0HFNqdL2bhDAzLqkIvhs_X0PvghpsY-wczOHlqz3D-r9CcTL-CkZRHUfAPSFCcTNDUdmOBbLNS81C_RW3wFcBPKNV9XDgpPTYZ_VcPwnP5gesuFbLD6RgmzXIdlcQrLxmB2KXRGx-yyvnZ70V82HS1quZivoQ_9Mg3-y-SdNynbXLMtMzVSe_T_G1imLnds1M5llAlpmea6sMK2Pxbxp5w1pjR-9xV4yyxstuVERn7QcL1Muu0RPzo4"/>
+          <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl"></div>
+        <div class="absolute -top-10 -left-10 w-48 h-48 bg-[#98f1f6]/30 rounded-full blur-[80px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News Feed -->
+  <section class="py-16 px-8 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <div class="asymmetric-grid">
+        <div>
+          <h2 class="font-headline text-4xl font-extrabold text-on-surface mb-4">Latest Lab Announcements</h2>
+
+          <!-- Notice Box -->
+          <div class="bg-primary/10 border border-primary/30 rounded-xl px-6 py-5 mb-12">
+            <p class="font-label text-sm font-bold text-primary tracking-widest uppercase mb-4">Notice</p>
+            <p class="text-on-surface text-base leading-relaxed mb-2">
+              ASDR 연구실에서는 2026년을 함께할 <strong>학부 연구생</strong>을 모집 중입니다.
+              관심있는 학생들은 <a class="text-primary underline" href="mailto:jihoon@kumoh.ac.kr">jihoon@kumoh.ac.kr</a>로 이메일 바랍니다.
+            </p>
+            <p class="text-on-surface text-base leading-relaxed mb-2">
+              ASDR lab is currently looking for <strong>graduate students</strong> in 2026 and 2027.
+              If you are interested, please send an email to <a class="text-primary underline" href="mailto:jihoon@kumoh.ac.kr">jihoon@kumoh.ac.kr</a>.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mt-3">
+              <span class="font-semibold">Research Topics:</span> Energy Harvesting, Self-powered Sensing, Functional Materials and Surfaces, Tribology, Soft Robotics, etc.
+            </p>
+          </div>
+
+          <!-- News Items -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Jan 11, 2026 • Press Release</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                <a href="https://news.nate.com/view/20260110n00074" target="_blank" rel="noopener noreferrer">
+                  금오공대, 압축공기로 전력 생산하는 '테슬라 터빈' 기술 개발
+                </a>
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">ASDR Lab's latest work on Tesla Turbine-inspired electricity generation from compressed air, covered by the national press.</p>
+            </article>
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Sep 01, 2025 • Award</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                김석진 석사과정, 학술연구지원사업 (석사과정생연구장려금지원) 최종 선정
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">Master's student Seokjin Kim was selected for the Academic Research Support Program graduate research fellowship.</p>
+            </article>
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Jun 06, 2025 • Award</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                <a href="http://www.dailydgnews.com/news/article.html?no=220873" target="_blank" rel="noopener noreferrer">
+                  서동원 석사과정, 국가우수장학 대학원대통령과학장학금 최종 선정
+                </a>
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">Master's student Dongwon Seo was awarded the prestigious Presidential Science Scholarship for graduate students.</p>
+            </article>
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Jul 09, 2024 • Publication</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                <a href="https://etnews.com/20240709000244" target="_blank" rel="noopener noreferrer">
+                  금오공대 학부생, 접촉센서 개발 논문 세계적 학술지 'Small'에 게재 승인
+                </a>
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">An undergraduate researcher's paper on contact sensor development was accepted in the international journal <em>Small</em>.</p>
+            </article>
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Jun 30, 2023 • Grant</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                2023년도 최초혁신실험실 추가지원 최종 선정
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">The lab was selected for additional support under the 2023 First Innovation Laboratory program.</p>
+            </article>
+
+            <article class="group cursor-pointer">
+              <div class="font-label text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-2">Mar 16, 2023 • Grant</div>
+              <h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-3">
+                우수신진연구사업 주관연구책임자 최종 선정
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                "강건한 금속유기구조체 표면 기반 자가 발전 기체 센서 개발" (2023.03–2028.02) — Selected as principal investigator for the Excellent Young Researcher program.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="mt-16 pt-12 pb-12 border-t border-slate-100 w-full text-center px-8">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
+    <p class="text-xs text-slate-400 mb-1">Advanced Surface Devices Research Lab</p>
+    <p class="text-xs text-slate-400 mb-4">Kumoh National Institute of Technology, Gumi, South Korea</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="index.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Home</a>
+      <a href="research.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Research</a>
+      <a href="publications.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Publications</a>
+      <a href="members.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Members</a>
+      <a href="gallery.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Gallery</a>
+      <a href="contact.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-slate-300">&copy; 2026 ASDR Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>
+
+</body>
+</html>
