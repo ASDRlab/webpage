@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publications | ASDR Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "outline": "#6e797a",
+                "secondary-fixed-dim": "#c8c6c6",
+                "secondary": "#5f5e5e",
+                "on-secondary-fixed-variant": "#474747",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "surface-tint": "#00696e",
+                "surface-container-highest": "#e3e2e2",
+                "surface-bright": "#faf9f9",
+                "secondary-fixed": "#e4e2e1",
+                "on-secondary-container": "#656464",
+                "surface-variant": "#e3e2e2",
+                "inverse-on-surface": "#f1f0f0",
+                "surface": "#ffffff",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#7cd5da",
+                "inverse-surface": "#2f3131",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#1a1c1c",
+                "surface-container": "#f1f1f1",
+                "on-tertiary-container": "#fffcfb",
+                "tertiary": "#5c5c5c",
+                "outline-variant": "#bdc9c9",
+                "on-primary-fixed": "#002021",
+                "on-primary-container": "#f3ffff",
+                "background": "#ffffff",
+                "surface-container-high": "#e8e8e8",
+                "on-surface-variant": "#3e4949",
+                "tertiary-fixed": "#e5e2e1",
+                "tertiary-container": "#757474",
+                "surface-container-low": "#f4f3f3",
+                "on-background": "#1a1c1c",
+                "on-primary-fixed-variant": "#004f53",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "primary-fixed": "#98f1f6",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-tertiary-fixed-variant": "#474746",
+                "secondary-container": "#e4e2e1",
+                "error-container": "#ffdad6",
+                "on-tertiary": "#ffffff",
+                "primary-container": "#1a8186",
+                "primary": "#00666b",
+                "primary-fixed-dim": "#7cd5da",
+                "on-error-container": "#93000a",
+                "surface-dim": "#dadada",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-secondary": "#ffffff"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL'0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            display: none !important;
+        }
+        html, body {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+            background-color: #ffffff !important;
+        }
+
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .nav-link {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3e4949;
+    transition: color 0.2s;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00666b;
+    transition: width 0.2s;
+  }
+  .nav-link:hover { color: #00666b; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #00666b; }
+  .nav-link.active::after { width: 100%; }
+    
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+  </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center">
+      <img src="Lab-Logo.jpg" alt="ASDR Lab" class="h-9 w-auto object-contain"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link ">Home</a>
+      <a href="research.html" class="nav-link ">Research</a>
+      <a href="publications.html" class="nav-link active">Publications</a>
+      <div class="dropdown">
+        <span class="nav-link" style="cursor:default">Members</span>
+        <div class="dropdown-menu">
+          <a href="pi.html">Principal Investigator</a>
+          <a href="members.html">Current Members</a>
+          <a href="alumni.html">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link ">Gallery</a>
+      <a href="contact.html" class="nav-link ">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="pl-0">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
+        <div class="pl-4 flex flex-col gap-2">
+          <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
+          <a href="members.html" class="nav-link text-sm">Current Members</a>
+          <a href="alumni.html" class="nav-link text-sm">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+<main class="pb-20 pt-16">
+<!-- Header -->
+<header class="max-w-7xl mx-auto px-8 py-16">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="font-label text-sm tracking-widest uppercase text-primary font-bold mb-4 block">Scientific Output</span>
+<h1 class="font-headline text-6xl font-extrabold tracking-tighter text-on-surface">Publications</h1>
+</div>
+</div>
+</header>
+<!-- Featured Publications Section -->
+<section class="max-w-7xl mx-auto px-8 mb-16">
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-headline text-2xl font-black text-on-surface uppercase tracking-tight">Featured Publications</h2>
+<div class="h-[1px] flex-grow bg-primary/20"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Featured 1 -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col shadow-md">
+<div class="mb-4">
+<span class="bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-wider">Highlight</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-4 leading-tight">
+<a class="hover:text-primary transition-colors" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506275">Particulate Static Effect Induced Electricity Generation Inspired by Tesla Turbine</a>
+</h4>
+<p class="font-body text-sm text-on-surface-variant font-medium mb-4 mt-auto">Seh-Hoon Chung†, <u>Dongwon Seo</u>†, Hyungseok Yong, Sunghan Kim, Zong-Hong Lin, Sangmin Lee*, and <u><b>Jihoon Chung*</b></u></p>
+<div class=“text-sm font-bold text-primary/70 italic”>Advanced Energy Materials (2024 IF: 26.0, JCR Top 3%) (2026)</div>
+</div>
+
+<!-- Featured 2 -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col shadow-md">
+<div class="mb-4">
+<span class="bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-wider">Highlight</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-4 leading-tight">
+<a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202300283">Ultrahigh Performance, Serially Stackable, Breeze Driven Triboelectric Generator via Ambient Air Ionizing Channel</a>
+</h4>
+<p class="font-body text-sm text-on-surface-variant font-medium mb-4 mt-auto">Jin-ho Son†, Seh-Hoon Chung†, Kyunghwan Cha, Sunghan Kim, Zong-Hong Lin, Jinkee Hong*, <u><b>Jihoon Chung*</b></u>, and Sangmin Lee*</p>
+<div class=“text-sm font-bold text-primary/70 italic”>Advanced Materials (2021 IF: 32.086, JCR Top 5%) (2023)</div>
+</div>
+
+<!-- Featured 3 -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col shadow-md">
+<div class="mb-4">
+<span class="bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-wider">Highlight</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-4 leading-tight">
+<a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S0169433226004551?via%3Dihub">UiO-66-NH2 Enabled Dry Solid Lubrication for Enhancing the Mechanical Stability and Electrical Output of a Triboelectric Nanogenerator</a>
+</h4>
+<p class="font-body text-sm text-on-surface-variant font-medium mb-4 mt-auto"><u>Kyunghwan Kim</u>, <u>Dongwon Seo</u>, Hee Jae Hwang*, and <u><b>Jihoon Chung*</b></u></p>
+<div class=“text-sm font-bold text-primary/70 italic”>Applied Surface Science (2024 IF: 6.9, JCR Top 15%) (2026)</div>
+</div></section>
+<!-- Search Bar & Filters -->
+<section class="max-w-7xl mx-auto px-8 mb-12">
+<div class="flex flex-col lg:flex-row gap-6 items-center">
+<div class="relative group flex-grow w-full lg:w-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">search</span>
+<input class="w-full border border-outline-variant/60 rounded-full py-4 pl-12 pr-6 font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-outline/60 bg-white shadow-sm" id="pub-search" placeholder="Search by title, author, or journal..." type="text"/>
+</div>
+<div class="flex items-center gap-3 w-full lg:w-auto shrink-0">
+<span class="font-label text-xs font-bold text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Filter:</span>
+<select class="border border-outline-variant/60 rounded-full py-4 px-6 font-body text-sm text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary cursor-pointer w-full lg:w-56 bg-white shadow-sm" id="pub-year-filter">
+<option value="all">All Years</option>
+<option value="2026">2026</option>
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+<option value="older">Older</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Publication List -->
+<section class="max-w-7xl mx-auto px-8" id="publication-container">
+<!-- 2026 --> <div class="mb-16 year-section" data-year="2026"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2026</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="#">Recent Advances in Electrostatic Discharge-Based Triboelectric Nanogenerators for Power Amplification</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung, Sangmin Lee*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Submitted</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="#">Smart Thrust Bearing with Integrated Discharge-Based Energy Harvesting and Deep-Learning Fault Detection</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Jimin Kong</u>†, <u>Dongwon Seo</u>†, <u>Seokjin Kim</u>, <u>Giyoung Son</u>, <u>Kyunghwan Kim</u>, Jang-Woo Han, Hee Jae Hwang*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Under Review</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="#">Artificial Turf-Inspired Triboelectric Nanogenerator for Location Detection</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Jimin Kong</u>, <u>Seongyeol Kim</u>, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Journal of the Korean Society of Manufacturing Process Engineers (KCI) (Accepted)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S0169433226004551?via%3Dihub">UiO-66-NH2 Enabled Dry Solid Lubrication for Enhancing the Mechanical Stability and Electrical Output of a Triboelectric Nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Kyunghwan Kim</u>, <u>Dongwon Seo</u>, Hee Jae Hwang*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Applied Surface Science (2024 IF: 6.9, JCR Top 15%) (2026)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506275">Particulate Static Effect Induced Electricity Generation Inspired by Tesla Turbine</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung†, <u>Dongwon Seo</u>†, <u>Hyungseok Yong</u>, Sunghan Kim, Zong-Hong Lin, Sangmin Lee*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2024 IF: 26.0, JCR Top 3%) (2026)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://link.springer.com/article/10.1007/s40684-025-00805-1">Rotation Cycloidal Accelerated Triboelectric Nanogenerator for Enhanced Electrical Output Through Mechanical Frequency Amplification</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Giyoung Son</u>, <u>Seokjin Kim</u>, Jang-Woo Han, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">International Journal of Precision Engineering and Manufacturing-Green Technology (2024 IF: 5.6, JCR Top 15%) (2026)</div> </div> </div> </div>
+<!-- 2025 --> <div class="mb-16 year-section" data-year="2025"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2025</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="#">3D-Printed Triboelectric Nanogenerators with Optimized Tribological Performance for Sustainable Energy Harvesting</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Kyounghwan Kim</u>, <u>Giyoung Son</u>, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Journal of the Korean Society of Manufacturing Process Engineers (KCI) (2025)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202500401">A Unified Enhanced Quasi-Electrostatic 3D Charge Model for Accurate Prediction and Design Optimization of Contact‒Separation Triboelectric Nanogenerators</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Seokjin Kim</u>, Jang-Woo Han*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Materials Technologies (2023 IF: 6.4, JCR Top 23%) (2025)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://link.springer.com/article/10.1007/s40684-025-00740-1">Systematic Design Improvement of Spinning Disk-Based Triboelectric Nanogenerators for Enhancing Electrical Output</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Dongwon Seo</u>†, <u>Seokjin Kim</u>†, <u>Jimin Kong</u>†, Wonhyung Lee*, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">International Journal of Precision Engineering and Manufacturing-Green Technology (2023 IF: 5.3, JCR Top 10%) (2025)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/10.1002/aenm.202500033">Reaching new efficiency milestones in low-speed wind energy harvesting via non-contact stackable ion-gate-based static discharge generator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung, Ji Woong Hur, <u>Seok Jin Kim</u>, <u>Kyunghwan Cha</u>, Hanwook Ryu, Zong-Hong Lin, Jinkee Hong*, <u>Jihoon Chung*</u>, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2023 IF: 24.4, JCR Top 3%) (2025)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202402442?af=R">Capacitive Structure-based Acoustic Triboelectric Nanogenerator for Advanced Warning Sound Recognition</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Giyoung Son</u>, <u>Dongwon Seo</u>, <u>Dongjun Kim</u>, <u>Seokjin Kim</u>, <u>Jimin Kong</u>, <u>Kyounghwan Kim</u>, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Engineering Materials (2023 IF: 3.4, JCR Top 50%) (2025)</div> </div> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="#">Energy Harvester based on Vertical Contact/separation Triboelectric Nanogenerator using the Surface Characteristics of Metal-organic Framework</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Kyoung-Hwan Kim, <u>Jimin Kong</u>, <u>Dongwon Seo</u>, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Journal of the Korean Society of Manufacturing Process Engineers (KCI) (2025)</div> </div> </div> </div> 
+<!-- 2024 --> <div class="mb-16 year-section" data-year="2024"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2024</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-white p-6 rounded-xl border border-outline-variant/40 hover:border-primary/30 hover:shadow-lg transition-all shadow-sm pub-card"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/10.1002/smll.202403394">Scott–Russel linkage-based triboelectric self-powered sensor for contact material-independent force sensing and tactile recognition</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Dongwon Seo</u>, <u>Jimin Kong</u>, and <u>Jihoon Chung*</u></p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Small (2023 IF: 13.0, JCR Top 10%) (2024)</div> </div> </div> </div>
+
+<!-- 2023 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2023"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2023</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://pubs.acs.org/doi/10.1021/acsomega.3c05524">Robustly Adherable Hierarchical Nanostructures via Self-Bonding and Self-Texturing of Aluminum Nitride for Applications in Highly Efficient Oil/Water Separation</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Handong Cho*, <b>Jihoon Chung*</b>, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">ACS Omega (2022 IF: 4.1, JCR Top 50%) (2023)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285522012083">Mechanical spring discharge-based multipillar triboelectric nanogenerator with enhanced power output</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Dongchang Kim</u>, <u>Deokjae Heo</u>, <u>Kyunghwan Cha</u>, <u>Myunghwan Song</u>, Jin-ho Son, Sunghan Kim, Zong-Hong Lin, Kyungwho Choi*, <b>Jihoon Chung*</b>, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2023)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adem.202201760">Stick-type discharge triboelectric nanogenerator with amplified output using a conductive spring</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Dongchang Kim</u>, <u>Kyunghwan Cha</u>, Hanwook Ryu, <u>Myunghwan Song</u>, Sunghan Kim, Zong-Hong Lin, <b>Jihoon Chung*</b>, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Engineering Materials (2021 IF: 4.122, JCR Top 50%) (2023)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202300283">Ultrahigh Performance, Serially Stackable, Breeze Driven Triboelectric Generator via Ambient Air Ionizing Channel</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Jin-ho Son†, Seh-Hoon Chung†, <u>Kyunghwan Cha</u>, Sunghan Kim, Zong-Hong Lin, Jinkee Hong*, <b>Jihoon Chung*</b>, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Materials (2021 IF: 32.086, JCR Top 5%) (2023)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S0306261923006128">Current amplification through deformable arch-shaped film based direct-current triboelectric nanogenerator for harvesting wind energy</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Myunghwan Song</u>†, Jiwoong Hur†, <u>Deokjae Heo</u>, Seh-Hoon Chung, <u>Dongchang Kim</u>, Sunghan Kim, Dongseob Kim, Zong-Hong Lin, <b>Jihoon Chung*</b>, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Applied Energy (2021 IF: 11.446, JCR Top 10%) (2023)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://pubs.acs.org/doi/full/10.1021/acsnano.2c12458">Recent advances in triboelectric nanogenerators: from technical progress to commercial applications</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Dongwhi Choi†, Younghoon Lee†, Zong-Hong Lin†, ... Sangmin Lee, <b>Jihoon Chung</b>, ... Zhong Lin Wang*, Jeong Min Baik*, and Dukhyun Choi*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">ACS Nano (2021 IF: 19.069, JCR Top 10%) (2023)</div> </div> </div> </div>
+<!-- 2022 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2022"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2022</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285522008321">Sub-watt power triboelectric generator via polarization switching charge carrier</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung, <u>Kyunghwan Cha</u>, <u>Myunghwan Song</u>, <u>Dongchang Kim</u>, <u>Deokjae Heo</u>, Min-Kun Kim, Heesoo Jung, Youngho Jin, Jinkee Hong, <b>Jihoon Chung*</b>, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/admt.202200453">Wind‐Driven Bidirectional Fluttering Triboelectric Nanogenerator Via Dual Flagpole and Slot Structure Design</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Jin‐ho Son, <u>Deokjae Heo</u>, Dongmin Goh, Minjoo Lee, <b>Jihoon Chung</b>, Seungtae Choi, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Materials Technologies (2021 IF: 8.856, JCR Top 20%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.mdpi.com/2673-706X/2/2/9">Recent Advances in Lubricant-Based Triboelectric Nanogenerators for Enhancing Mechanical Lifespan and Electrical Output</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung, <b>Jihoon Chung*</b>, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nanoenergy Advances (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aenm.202103571">AC/DC Convertible Pillar‐Type Triboelectric Nanogenerator with Output Current Amplified by the Design of the Moving Electrode</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Dongchang Kim</u>†, <b>Jihoon Chung</b>†, <u>Deokjae Heo</u>, Seh‐Hoon Chung, Giuk Lee, Patrick TJ Hwang, Min‐Kun Kim, Heesoo Jung, Youngho Jin*, Jinkee Hong*, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2021 IF: 29.698, JCR Top 5%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S221128552101065X">Semisolid-lubricant-based ball-bearing triboelectric nanogenerator for current amplification, enhanced mechanical lifespan, and thermal stabilization</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Myunghwan Song</u>†, <b>Jihoon Chung</b>†, Seh-Hoon Chung, <u>Kyunghwan Cha</u>, <u>Deokjae Heo</u>, Sunghan Kim, Patrick TJ Hwang, Dongseob Kim, Bonwook Koo*, Jinkee Hong*, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285521010466">Highly reliable triboelectric bicycle tire as self-powered bicycle safety light and pressure sensor</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Jin-ho Son†, <u>Deokjae Heo</u>†, Yeonsu Song, <b>Jihoon Chung</b>, Banseok Kim, Woochul Nam, Patrick TJ Hwang, Dongseob Kim, Bonwook Koo*, Jinkee Hong*, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.tandfonline.com/doi/full/10.1080/14686996.2022.2030195">Lightweight mobile stick-type water-based triboelectric nanogenerator with amplified current for portable safety devices</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Kyunghwan Cha</u>†, <b>Jihoon Chung</b>†, <u>Deokjae Heo</u>, <u>Myunghwan Song</u>, Seh-Hoon Chung, Patrick T.J. Hwang, Dongseob Kim, Bonwook Koo, Jinkee Hong, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Science and Technology of Advanced Materials (2021 IF: 7.662, JCR Top 25%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/10.1002/aenm.202201001">Inhalation‐Driven Vertical Flutter Triboelectric Nanogenerator with Amplified Output as a Gas‐Mask‐Integrated Self‐Powered Multifunctional System</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Deokjae Heo</u>†, <u>Myunghwan Song</u>†, Seh‐Hoon Chung, <u>Kyunghwan Cha</u>, Youna Kim, <b>Jihoon Chung</b>, Patrick TJ Hwang, Jaeheon Lee, Heesoo Jung, Youngho Jin, Jinkee Hong*, Min‐Kun Kim*, and Sangmin Lee*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2021 IF: 29.698, JCR Top 5%) (2022) (Selected as Front Cover)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285521005474">Dielectric liquid-based self-operating switch triboelectric nanogenerator for current amplification via regulating air breakdown</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Seh-Hoon Chung†, Zong-Hong Lin, Youngho Jin, Jinkee Hong, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285521004651">Body-mediated energy loss conversion for personalized cell vitalization</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Hyungseok Yong, S. Jung, <u>Deokjae Heo</u>, Woojin Choi, <b>Jihoon Chung</b>, Seongeun Cho, Patrick Hwang, Hyeonhui Song, Won-gun Ko, Sangmin Lee*, and Jinkee Hong*</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> </div> </div>
+<!-- 2021 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2021"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2021</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aenm.202100936">Nonpolar Liquid Lubricant Submerged Triboelectric Nanogenerator for Current Amplification via Direct Electron Flow</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh‐Hoon Chung†, <b>Jihoon Chung</b>†, <u>Myunghwan Song</u>, Seonwoo Kim, Dongjun Shin, Zong‐Hong Lin, Bonwook Koo, Dongseob Kim, Jinkee Hong, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2021 IF: 29.698, JCR Top 5%) (2021) (Selected as Front Cover)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2589004221004107">A portable device for water-sloshing-based electricity generation based on charge separation and accumulation</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, <u>Deokjae Heo</u>†, <u>Kyunghwan Cha</u>†, Zong-Hong Lin, Jinkee Hong*, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">iScience (2021 IF: 6.107, JCR Top 20%) (2021)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285520312854">Condensed droplet-based electricity generation via water-phase change</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Gunsub Shin, Hyungseok Yong, <b>Jihoon Chung</b>, Eunho Cho, Jihong Ju, Hyungsoon Lee, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2021 IF: 19.069, JCR Top 10%) (2022)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S221128552031260X">Water behavior based electric generation via charge separation</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, <u>Deokjae Heo</u>†, Gunsub Shin, Seh-Hoon Chung, Jinkee Hong, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2020)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://spj.science.org/doi/10.34133/2021/7248579">Triangulated cylinder origami-based piezoelectric/triboelectric hybrid generator for harvesting coupled axial and rotational motion</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, <u>Myunghwan Song</u>†, Seh-Hoon Chung, Woojin Choi, Sanghyun Lee, Jinkee Hong, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Research (2021 IF: 11.036, JCR Top 15%) (2021)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.mdpi.com/1996-1073/14/7/1798">Yo-Yo Inspired Triboelectric Nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Deokjae Heo</u>†, <b>Jihoon Chung</b>†, Gunsub Shin, Minhyeong Seok, Chanhee Lee, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Energies (2020 IF: 3.004) (2021)</div> </div> </div> </div> 
+<!-- 2020 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2020"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2020</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/adem.202000758">Screw pump‐type water triboelectric nanogenerator for active water flow control</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Seh-Hoon Chung†, <b>Jihoon Chung</b>†, Banseok Kim, Seamin Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Engineering Materials (2020 IF: 3.862, JCR Top 50%) (2020)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285520302767">Triboelectric speed bump as a self-powered automobile warning and velocity sensor</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><u>Deokjae Heo</u>†, <b>Jihoon Chung</b>†, Banseok Kim, Hyungseok Yong, Gunsub Shin, Jung-Woo Cho, Dongseob Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2020)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.tandfonline.com/doi/full/10.1080/14686996.2020.1733920">Versatile surface for solid–solid/liquid–solid triboelectric nanogenerator based on fluorocarbon liquid infused surfaces</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Handong Cho†, Hyungseok Yong, <u>Deokjae Heo</u>, You Seung Rim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Science and Technology of Advanced Materials (2020 IF: 8.090, JCR Top 20%) (2020)</div> </div> </div> </div>
+<!-- 2019 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2019"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2019</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aenm.201901731">Ion‐enhanced field emission triboelectric nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Deokjae Heo†, Gunsub Shin, Dukhyun Choi, Kyungwho Choi, Dongseob Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2021 IF: 29.698, JCR Top 5%) (2019) (Selected as Front Cover)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285518308516">Toward sustainable output generation of liquid–solid contact triboelectric nanogenerators: The role of hierarchical structures</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Handong Cho†, <b>Jihoon Chung</b>†, Gunsub Shin, Jae-Yoon Sim, Dong Sung Kim, Sangmin Lee, and Woonbong Hwang. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2019)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://koreascience.kr/article/JAKO201912063603222.page">Triboelectric Nanogenerator Utilizing Metal-to-Metal Surface Contact</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>, Deokjae Heo, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Composites Research (KCI) (2019)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.mdpi.com/2076-3417/9/18/3762">Enhancement of corrosion resistance of aluminum 7075 surface through oil impregnation for subsea application</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Youngkyun Seo, Jung-Yeul Jung, <b>Jihoon Chung</b>, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Applied Sciences (2020 IF: 2.679) (2019)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://link.springer.com/article/10.1007/s40684-019-00024-5">A Deformable Foam-Layered Triboelectric Tactile Sensor with Adjustable Dynamic Range</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Dongun Lee†, <b>Jihoon Chung</b>†, Hyungseok Yong, Sangmin Lee*, and Dongjun Shin*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">International Journal of Precision Engineering and Manufacturing-Green Technology (2020 IF: 5.671, JCR Top 5%) (2019)</div> </div> </div> </div> <!-- 2018 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2018"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2018</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.mdpi.com/2072-666X/9/11/593">Superhydrophobic Water-Solid Contact Triboelectric Generator by Simple Spray-On Fabrication Method</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Deokjae Heo†, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Micromachines (2020 IF: 2.891, JCR Top 50%) (2018)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.201801054">Hand‐Driven Gyroscopic Hybrid Nanogenerator for Recharging Portable Devices</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Hyungseok Yong†, Haksung Moon, Van Duong Quang, Seungtae Choi, Dongseob Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Science (2020 IF: 16.806, JCR Top 5%) (2018) (Selected as Front Cover)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285518303422">Elastic spiral triboelectric nanogenerator as a self-charging case for portable electronics</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Banseok Kim†, <b>Jihoon Chung</b>†, Haksung Moon†, Dongseob Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2018)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aenm.201703024">Capacitor‐integrated triboelectric nanogenerator based on metal–metal contact for current amplification</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>†, Hyungseok Yong†, Haksung Moon, Seung Tae Choi, Divij Bhatia, Dukhyun Choi, Dongseob Kim, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Energy Materials (2020 IF: 29.368, JCR Top 5%) (2018) (Selected as Frontispiece Cover)</div> </div> </div> </div> <!-- 2017 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2017"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2017</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S135983681632741X">Enhancement of interfacial adhesion based on nanostructured alumina/aluminum laminates</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Sungwoo Jang†, <b>Jihoon Chung</b>†, Seokhoon Seo, Sukyung Lee, Yoonha Lee, Sangmin Lee, and Hae-Jin Choi. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Composites Part B: Engineering (2020 IF: 9.087, JCR Top 5%) (2017)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://onlinelibrary.wiley.com/doi/full/10.1002/adfm.201701367">Supramolecular‐assembled Nanoporous film with switchable metal salts for a triboelectric Nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Chanho Park, Giyoung Song, Suk Man Cho, <b>Jihoon Chung</b>, Yujeong Lee, Eui Hyuk Kim, Minjoo Kim, Sangmin Lee, June Huh, and Cheolmin Park.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Advanced Functional Materials (2020 IF: 18.808, JCR Top 5%) (2017)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285517302100">Transfer-printable micropatterned fluoropolymer-based triboelectric nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Jaewook Ha†, <b>Jihoon Chung</b>†, Seong Min Kim†, Jong Hun Kim, Seungmin Shin, Jeong Young Park, Sangmin Lee*, and Jin-Baek Kim*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2017)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285516305420">Stack/flutter-driven self-retracting triboelectric nanogenerator for portable electronics</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Haksung Moon†, <b>Jihoon Chung</b>†, Banseok Kim†, Hyungseok Yong, Taehun Kim, Sukyung Lee, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2017)</div> </div> </div> </div> <!-- 2016 --> <div class="mb-16 year-section hidden" data-older="true" data-year="2016"> <div class="flex items-center gap-4 mb-8"> <h2 class="font-headline text-3xl font-black text-on-surface">2016</h2> <div class="h-[1px] flex-grow bg-outline-variant/30"></div> </div> <div class="space-y-4"> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://pubs.acs.org/doi/10.1021/acsami.6b08828">Cylindrical Water Triboelectric Nanogenerator via Controlling Geometrical Shape of Anodized Aluminum for Enhanced Electrostatic Induction</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Sukyung Lee†, <b>Jihoon Chung</b>†, D.Y. Kim, J.-Y. Jung, S.H. Lee, and Sangmin Lee. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">ACS Applied Materials &amp; Interfaces (2020 IF: 9.229, JCR Top 15%) (2016)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.nature.com/articles/srep33977">Highly reliable wind-rolling triboelectric nanogenerator operating in a wide wind speed range</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Hyungseok Yong†, <b>Jihoon Chung</b>†, D. Choi, D. Jung, M. Cho*, and Sangmin Lee*. († Equal Contribution)</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Scientific Reports (2020 IF: 4.379, JCR Top 25%) (2016)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285516302348">Design and optimization of rotating triboelectric nanogenerator by water electrification and inertia</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3">Taehun Kim, <b>Jihoon Chung</b>, D.Y. Kim, J.H. Moon, Sukyung Lee, M. Cho, S.H. Lee, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2016)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://link.springer.com/article/10.3938/jkps.68.452">Direct fabrication of superhydrophobic ceramic surfaces with ZnO nanowires</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>, Sukyung Lee, Hyungseok Yong, Sangmin Lee, and Yong Tae Park.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Journal of the Korean Physical Society (2020 IF: 0.649) (2016)</div> </div> <div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container hover:border-primary/20 transition-all"> <h4 class="font-headline text-lg font-bold text-on-surface mb-2"><a class="hover:text-primary transition-colors" href="https://www.sciencedirect.com/science/article/pii/S2211285515004826">Self-packaging elastic bellows-type triboelectric nanogenerator</a></h4> <p class="font-body text-sm text-on-surface-variant font-medium mb-3 mb-3"><b>Jihoon Chung</b>, Sukyung Lee, Hyungseok Yong, Haksung Moon, Dukhyun Choi, and Sangmin Lee.</p> <div class="font-body text-sm font-bold text-primary/70 mt-1">Nano Energy (2020 IF: 17.881, JCR Top 5%) (2016)</div> </div> </div> </div><!-- Load More Section -->
+<div class="flex justify-center mt-12 pb-12">
+<button class="bg-primary text-white font-headline font-bold px-10 py-4 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center gap-2 group shadow-lg shadow-primary/20" id="load-more-btn">
+                    Load More Publications
+                    <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</section>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('pub-search');
+        const yearFilter = document.getElementById('pub-year-filter');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const allSections = document.querySelectorAll('.year-section');
+
+        let loadedCount = 0;
+
+        function updateDisplay() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedYear = yearFilter.value;
+
+            let anyHiddenLeft = false;
+
+            allSections.forEach((section) => {
+                const year = section.getAttribute('data-year');
+                const isDefaultVisible = !section.hasAttribute('data-older');
+
+                // Select ALL cards in the section, not just .pub-card
+                const cards = section.querySelectorAll('[class*="p-6 rounded-xl"]');
+                let visibleInYear = 0;
+
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
+
+                    let matchesYear = false;
+                    if (selectedYear === 'all') {
+                        matchesYear = true;
+                    } else if (selectedYear === 'older') {
+                        matchesYear = section.hasAttribute('data-older');
+                    } else {
+                        matchesYear = year === selectedYear;
+                    }
+
+                    if (matchesSearch && matchesYear) {
+                        card.style.display = 'block';
+                        visibleInYear++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (searchTerm !== '' || selectedYear !== 'all') {
+                    section.classList.remove('hidden');
+                    section.style.display = visibleInYear > 0 ? 'block' : 'none';
+                    loadMoreBtn.parentElement.classList.add('hidden');
+                } else {
+                    // Restore all card visibility in default view
+                    cards.forEach(card => card.style.display = 'block');
+                    loadMoreBtn.parentElement.classList.remove('hidden');
+
+                    if (isDefaultVisible) {
+                        section.classList.remove('hidden');
+                        section.style.display = 'block';
+                    } else {
+                        const olderSections = Array.from(allSections).filter(s => s.hasAttribute('data-older'));
+                        const olderIndex = olderSections.indexOf(section);
+
+                        if (olderIndex < loadedCount) {
+                            section.classList.remove('hidden');
+                            section.style.display = 'block';
+                        } else {
+                            section.classList.add('hidden');
+                            section.style.display = 'none';
+                            anyHiddenLeft = true;
+                        }
+                    }
+                }
+            });
+
+            if (!anyHiddenLeft && selectedYear === 'all' && searchTerm === '') {
+                loadMoreBtn.innerHTML = 'All publications loaded';
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                loadMoreBtn.innerHTML = 'Load More Publications <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>';
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        searchInput.addEventListener('input', updateDisplay);
+        yearFilter.addEventListener('change', updateDisplay);
+
+        loadMoreBtn.addEventListener('click', () => {
+            const hiddenOlder = Array.from(allSections).filter(s => s.hasAttribute('data-older') && s.classList.contains('hidden'));
+            if (hiddenOlder.length > 0) {
+                loadMoreBtn.innerHTML = 'Loading...';
+                setTimeout(() => {
+                    loadedCount++;
+                    updateDisplay();
+                }, 400);
+            }
+        });
+
+        updateDisplay();
+    });
+
+  const _navBtn = document.getElementById('mobile-menu-btn');
+  const _navMenu = document.getElementById('mobile-menu');
+  if (_navBtn) _navBtn.addEventListener('click', () => _navMenu.classList.toggle('hidden'));
+</script>
+<!-- Footer -->
+<footer class="mt-16 pt-12 pb-12 border-t border-slate-100 w-full text-center px-8">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
+    <p class="text-xs text-slate-400 mb-1">Advanced Surface Devices Research Lab</p>
+    <p class="text-xs text-slate-400 mb-4">Kumoh National Institute of Technology, Gumi, South Korea</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="index.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Home</a>
+      <a href="research.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Research</a>
+      <a href="publications.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Publications</a>
+      <a href="members.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Members</a>
+      <a href="gallery.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Gallery</a>
+      <a href="contact.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-slate-300">&copy; 2026 ASDR Lab. All rights reserved.</p>
+  </div>
+</footer></body></html>

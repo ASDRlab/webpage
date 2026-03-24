@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="no-scrollbar" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#1a8186", "outline-variant": "#bdc9c9",
+          "surface-container-high": "#e8e8e8", "surface-container": "#eeeeee",
+          "on-background": "#1a1c1c", "on-surface": "#1a1c1c",
+          "on-surface-variant": "#3e4949", "on-primary": "#ffffff",
+          "surface": "#ffffff", "background": "#ffffff",
+          "primary": "#00666b", "outline": "#6e797a",
+          "surface-container-low": "#f4f3f3",
+        },
+        fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap');
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-panel { backdrop-filter: blur(20px); background: rgba(255,255,255,0.7); }
+  .text-editorial { letter-spacing: -0.02em; }
+  .label-spacing { letter-spacing: 0.05em; }
+  .glass-nav { background-color: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+  .nav-link { position: relative; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; color: #3e4949; transition: color 0.2s; }
+  .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00666b; transition: width 0.2s; }
+  .nav-link:hover { color: #00666b; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #00666b; }
+  .nav-link.active::after { width: 100%; }
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+</style>
+</head>
+<body class="bg-background font-body text-on-surface no-scrollbar">
+
+<!-- Nav -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center">
+      <img src="Lab-Logo.jpg" alt="ASDR Lab" class="h-9 w-auto object-contain"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="dropdown">
+        <span class="nav-link" style="cursor:default">Members</span>
+        <div class="dropdown-menu">
+          <a href="pi.html">Principal Investigator</a>
+          <a href="members.html">Current Members</a>
+          <a href="alumni.html">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="pl-0">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
+        <div class="pl-4 flex flex-col gap-2">
+          <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
+          <a href="members.html" class="nav-link text-sm">Current Members</a>
+          <a href="alumni.html" class="nav-link text-sm">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex flex-col items-center pt-32 pb-12 px-4 md:px-12 lg:px-20">
+  <div class="max-w-5xl w-full flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-20 items-start">
+
+    <!-- Left: Contact Info -->
+    <div class="lg:col-span-5 space-y-10 w-full">
+      <header class="space-y-4">
+        <span class="text-primary font-label text-xs font-bold uppercase label-spacing">Get in Touch</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-on-surface text-editorial tracking-tighter">
+          Contact <br><span class="text-primary-container">ASDR Lab.</span>
+        </h1>
+        <p class="text-on-surface-variant text-base md:text-lg max-w-md font-body leading-relaxed">
+          For inquiries regarding research collaborations, publications, or joining the lab, please reach out via the channels below.
+        </p>
+      </header>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined">location_on</span>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-headline font-bold text-on-surface">Address</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm">
+              Kumoh National Institute of Technology,<br>
+              Techno Building 121, 61, Daehak-ro, Gumi-si,<br>
+              Gyeongsangbuk-do, Republic of Korea 39177
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined">mail</span>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-headline font-bold text-on-surface">E-mail</h3>
+            <a class="text-primary-container font-medium hover:underline underline-offset-4 decoration-2 text-sm" href="mailto:jihoon@kumoh.ac.kr">jihoon@kumoh.ac.kr</a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined">call</span>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-headline font-bold text-on-surface">Office</h3>
+            <p class="text-on-surface-variant font-medium text-sm">+82-054-478-7382</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:hidden">
+        <a href="https://maps.google.com/?q=금오공과대학교+테크노관,+구미시,+경상북도" target="_blank"
+           class="flex items-center gap-3 px-5 py-3 border border-outline-variant rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors w-fit">
+          <span class="material-symbols-outlined text-primary text-base">map</span>
+          View on Google Maps
+        </a>
+      </div>
+
+      <div>
+        <a class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary px-7 py-3.5 rounded-xl font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform duration-200" href="mailto:jihoon@kumoh.ac.kr">
+          <span>Send Message</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Map -->
+    <div class="lg:col-span-7 w-full hidden lg:block">
+      <div class="w-full h-[560px] rounded-2xl overflow-hidden shadow-2xl shadow-on-surface/5 relative">
+        <iframe
+          allowfullscreen=""
+          class="w-full h-full grayscale contrast-[1.1] opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700 ease-in-out"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d812.3!2d128.39345!3d36.14632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35667954911d31a5%3A0xc6226c6d03d098e9!2z6riw7Jyg6rK97ZiE7ZWY6rWQIOuLieuCmOuwlQ!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr"
+          style="border:0;"
+          title="ASDR Lab Location - Techno Building, KIT">
+        </iframe>
+        <div class="absolute bottom-5 left-5 glass-panel p-4 rounded-xl border border-outline-variant/20 shadow-xl max-w-[200px]">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1">location_on</span>
+            <span class="font-headline font-bold text-xs tracking-tight text-on-surface">Techno Building 121</span>
+          </div>
+          <p class="text-[11px] text-on-surface-variant font-body leading-relaxed">KIT campus, technology research wing.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="mt-12 pt-10 pb-10 border-t border-slate-100 w-full text-center px-8">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
+    <p class="text-xs text-slate-400 mb-1">Advanced Surface Devices Research Lab</p>
+    <p class="text-xs text-slate-400 mb-4">Kumoh National Institute of Technology, Gumi, South Korea</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="index.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Home</a>
+      <a href="research.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Research</a>
+      <a href="publications.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Publications</a>
+      <a href="members.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Members</a>
+      <a href="gallery.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Gallery</a>
+      <a href="contact.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-slate-300">&copy; 2026 ASDR Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const _btn = document.getElementById('mobile-menu-btn');
+  const _menu = document.getElementById('mobile-menu');
+  if (_btn) _btn.addEventListener('click', () => _menu.classList.toggle('hidden'));
+</script>
+</body></html>

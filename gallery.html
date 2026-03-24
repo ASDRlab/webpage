@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="light no-scrollbar" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | ASDR Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#1a8186", "outline-variant": "#bdc9c9",
+          "surface-container-high": "#e8e8e8", "surface-container": "#eeeeee",
+          "on-background": "#1a1c1c", "on-surface": "#1a1c1c",
+          "on-surface-variant": "#3e4949", "on-primary": "#ffffff",
+          "surface": "#faf9f9", "background": "#faf9f9",
+          "primary": "#00666b", "outline": "#6e797a",
+          "surface-container-low": "#f4f3f3", "surface-container-lowest": "#ffffff",
+        },
+        fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap');
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  body { margin: 0; padding: 0; background-color: #ffffff; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .drive-frame { border: none; width: 100%; border-radius: 0.75rem; overflow: hidden; background: #f4f3f3; }
+  .glass-nav { background-color: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+  .nav-link { position: relative; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; color: #3e4949; transition: color 0.2s; }
+  .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00666b; transition: width 0.2s; }
+  .nav-link:hover { color: #00666b; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #00666b; }
+  .nav-link.active::after { width: 100%; }
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+</style>
+</head>
+<body class="font-body text-on-surface bg-white no-scrollbar">
+
+<!-- Nav -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center">
+      <img src="Lab-Logo.jpg" alt="ASDR Lab" class="h-9 w-auto object-contain"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="dropdown">
+        <span class="nav-link" style="cursor:default">Members</span>
+        <div class="dropdown-menu">
+          <a href="pi.html">Principal Investigator</a>
+          <a href="members.html">Current Members</a>
+          <a href="alumni.html">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link active">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="pl-0">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
+        <div class="pl-4 flex flex-col gap-2">
+          <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
+          <a href="members.html" class="nav-link text-sm">Current Members</a>
+          <a href="alumni.html" class="nav-link text-sm">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link active">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-5xl mx-auto px-6 pt-32 pb-16 md:px-12 md:pb-20 bg-white">
+  <header class="mb-20 max-w-2xl">
+    <span class="text-[10px] font-label font-bold tracking-[0.3em] text-primary uppercase mb-4 block">Gallery</span>
+    <h2 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight mb-6">
+      Lab in <span class="text-primary italic">Photos.</span>
+    </h2>
+    <div class="h-1 w-24 bg-primary rounded-full mb-8"></div>
+    <p class="text-base text-on-surface-variant font-light leading-relaxed">
+      Photos from conferences, lab events, and everyday moments in the ASDR Lab.
+    </p>
+  </header>
+
+  <!-- Section 1: Conferences & Symposia -->
+  <section class="mb-24">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h3 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Conferences &amp; Symposia</h3>
+        <p class="text-xs text-outline font-label mt-1 tracking-widest">CONFERENCES &amp; PRESENTATIONS</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY" target="_blank"
+         class="hidden md:flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
+        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+    <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm">
+      <iframe class="drive-frame" height="480"
+        src="https://drive.google.com/embeddedfolderview?id=1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY#grid"
+        title="Conferences & Symposia"></iframe>
+    </div>
+    <div class="mt-3 flex md:hidden justify-end">
+      <a href="https://drive.google.com/drive/folders/1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY" target="_blank"
+         class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
+        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 2: Lab Socials & Traditions -->
+  <section class="mb-24">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h3 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Lab Socials &amp; Traditions</h3>
+        <p class="text-xs text-outline font-label mt-1 tracking-widest">LAB EVENTS &amp; GATHERINGS</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv" target="_blank"
+         class="hidden md:flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
+        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+    <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm">
+      <iframe class="drive-frame" height="480"
+        src="https://drive.google.com/embeddedfolderview?id=1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv#grid"
+        title="Lab Socials & Traditions"></iframe>
+    </div>
+    <div class="mt-3 flex md:hidden justify-end">
+      <a href="https://drive.google.com/drive/folders/1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv" target="_blank"
+         class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
+        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="mt-8 pt-10 pb-10 border-t border-slate-100 w-full text-center px-8">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
+    <p class="text-xs text-slate-400 mb-1">Advanced Surface Devices Research Lab</p>
+    <p class="text-xs text-slate-400 mb-4">Kumoh National Institute of Technology, Gumi, South Korea</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="index.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Home</a>
+      <a href="research.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Research</a>
+      <a href="publications.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Publications</a>
+      <a href="members.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Members</a>
+      <a href="gallery.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Gallery</a>
+      <a href="contact.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-slate-300">&copy; 2026 ASDR Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const _btn = document.getElementById('mobile-menu-btn');
+  const _menu = document.getElementById('mobile-menu');
+  if (_btn) _btn.addEventListener('click', () => _menu.classList.toggle('hidden'));
+</script>
+</body></html>

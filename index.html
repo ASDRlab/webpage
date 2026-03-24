@@ -112,39 +112,54 @@
   .nav-link:hover::after { width: 100%; }
   .nav-link.active { color: #00666b; }
   .nav-link.active::after { width: 100%; }
-</style>
+
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+  </style>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased !bg-white no-scrollbar">
 
 <!-- Top Navigation Bar -->
 <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
   <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="font-headline font-extrabold text-primary text-lg tracking-tight">ASDR</span>
-      <span class="font-headline font-medium text-on-surface-variant text-sm hidden sm:block">Lab</span>
+    <a href="index.html" class="flex items-center">
+      <img src="Lab-Logo.jpg" alt="ASDR Lab" class="h-9 w-auto object-contain"/>
     </a>
-    <!-- Desktop Menu -->
     <div class="hidden md:flex items-center gap-8">
       <a href="index.html" class="nav-link active">Home</a>
-      <a href="research.html" class="nav-link">Research</a>
-      <a href="publications.html" class="nav-link">Publications</a>
-      <a href="members.html" class="nav-link">Members</a>
-      <a href="gallery.html" class="nav-link">Gallery</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="research.html" class="nav-link ">Research</a>
+      <a href="publications.html" class="nav-link ">Publications</a>
+      <div class="dropdown">
+        <span class="nav-link" style="cursor:default">Members</span>
+        <div class="dropdown-menu">
+          <a href="pi.html">Principal Investigator</a>
+          <a href="members.html">Current Members</a>
+          <a href="alumni.html">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link ">Gallery</a>
+      <a href="contact.html" class="nav-link ">Contact</a>
     </div>
-    <!-- Mobile Menu Button -->
     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
       <span class="material-symbols-outlined text-on-surface-variant">menu</span>
     </button>
   </div>
-  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
-    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-4">
-      <a href="index.html" class="nav-link active">Home</a>
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
+      <a href="index.html" class="nav-link">Home</a>
       <a href="research.html" class="nav-link">Research</a>
       <a href="publications.html" class="nav-link">Publications</a>
-      <a href="members.html" class="nav-link">Members</a>
+      <div class="pl-0">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
+        <div class="pl-4 flex flex-col gap-2">
+          <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
+          <a href="members.html" class="nav-link text-sm">Current Members</a>
+          <a href="alumni.html" class="nav-link text-sm">Alumni</a>
+        </div>
+      </div>
       <a href="gallery.html" class="nav-link">Gallery</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </div>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="light no-scrollbar" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research | ASDR Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "outline": "#6e797a",
+          "secondary": "#5f5e5e",
+          "surface-tint": "#00696e",
+          "surface": "#ffffff",
+          "on-surface": "#1a1c1c",
+          "primary": "#00666b",
+          "primary-container": "#1a8186",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#3e4949",
+          "surface-container-low": "#f4f3f3",
+          "outline-variant": "#bdc9c9",
+          "surface-container": "#eeeeee",
+          "surface-container-high": "#e8e8e8",
+        },
+        fontFamily: {
+          "headline": ["Manrope"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .nav-link {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3e4949;
+    transition: color 0.2s;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00666b;
+    transition: width 0.2s;
+  }
+  .nav-link:hover { color: #00666b; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #00666b; }
+  .nav-link.active::after { width: 100%; }
+  .workflow-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #00666b 10%, #00666b 90%, transparent);
+    z-index: 0;
+  }
+
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+  </style>
+</head>
+<body class="bg-white text-on-surface font-body no-scrollbar">
+
+<!-- Top Navigation Bar -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center">
+      <img src="Lab-Logo.jpg" alt="ASDR Lab" class="h-9 w-auto object-contain"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link ">Home</a>
+      <a href="research.html" class="nav-link active">Research</a>
+      <a href="publications.html" class="nav-link ">Publications</a>
+      <div class="dropdown">
+        <span class="nav-link" style="cursor:default">Members</span>
+        <div class="dropdown-menu">
+          <a href="pi.html">Principal Investigator</a>
+          <a href="members.html">Current Members</a>
+          <a href="alumni.html">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link ">Gallery</a>
+      <a href="contact.html" class="nav-link ">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
+      <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <div class="pl-0">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
+        <div class="pl-4 flex flex-col gap-2">
+          <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
+          <a href="members.html" class="nav-link text-sm">Current Members</a>
+          <a href="alumni.html" class="nav-link text-sm">Alumni</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-16 py-12 md:py-20">
+
+  <!-- Header Section -->
+  <section class="max-w-4xl mx-auto px-8 mb-16 text-center">
+    <p class="font-label text-xs font-bold text-primary tracking-widest uppercase mb-4">Research</p>
+    <h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight text-on-surface">
+      From Atoms to <span class="text-primary-container">Architectures</span>
+    </h1>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="max-w-6xl mx-auto px-8 relative mb-32">
+    <div class="workflow-line hidden md:block"></div>
+    <div class="space-y-24 relative">
+
+      <!-- Step 1 -->
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div class="w-full md:w-1/2 md:text-right order-2 md:order-1">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold mb-4 md:hidden">1</div>
+          <h2 class="font-headline text-3xl font-bold mb-4 tracking-tight">01. Raw Material &amp; Material Synthesis</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            The foundation of our research lies in the precision synthesis of fundamental building blocks. We specialize in the development and characterization of diverse material classes.
+          </p>
+          <div class="flex flex-wrap md:justify-end gap-2">
+            <span class="px-3 py-1 bg-surface-container-low text-xs font-semibold uppercase tracking-wider rounded-lg border border-outline-variant">Metals</span>
+            <span class="px-3 py-1 bg-surface-container-low text-xs font-semibold uppercase tracking-wider rounded-lg border border-outline-variant">Polymers</span>
+            <span class="px-3 py-1 bg-surface-container-low text-xs font-semibold uppercase tracking-wider rounded-lg border border-outline-variant">Ceramics</span>
+            <span class="px-3 py-1 bg-surface-container-low text-xs font-semibold uppercase tracking-wider rounded-lg border border-outline-variant">Composites</span>
+            <span class="px-3 py-1 bg-primary text-on-primary text-xs font-semibold uppercase tracking-wider rounded-lg">Metal-Organic Frameworks</span>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center z-10 order-2">
+          <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg shadow-primary/20">1</div>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-3">
+          <div class="rounded-xl overflow-hidden shadow-xl aspect-video bg-slate-100">
+            <img alt="Metal-Organic Framework crystalline structure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRYVqNAYTb1bQF_FD4ey4HemvFDcNhNUeJY_re9gISlxPp4LLSfHNRQ_wJvNViuqgbKJGAh0DSUq0eElkiF3gCUGV2pM7MudeIv7KCQM65pFzBET5O6cokxRvTXPgAf2CpJBdXwYBckcz-FREHUDaTfDxEPJDs8SGeJ0WouInLgo4leBCubyuYFgMF9ORC2u9pHYF6-gg6PJDWi73fiMuDRQOw9g5GXxBvZBENCKPR40zDmrg7vaxwyxuSnIYmZEh8cGa7JMDQRw"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div class="w-full md:w-1/2 order-1 md:order-1">
+          <div class="rounded-xl overflow-hidden shadow-xl aspect-video bg-slate-100">
+            <img alt="Superhydrophobic surface with water droplets" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2RMdSI-2D-FHM0xarqAR6lGoHvI4L-a08LrF7giRDHlA-VmFTy4wnM-NA3zzL-dqbRh9XVynb9vE7PNHIthTcFLbamYGJ_K6T1vkvIwZz06GOj6K8QNLirmwUTuKDGGb87rVQ8hCMnXmfyl6E-Y1P0LkHamzQLTXYcQhB-taKPuic0BRqBNWgMX7vv4jr5-j-j5fEr2j5y1ptql7FSwD-Ph7rQckiueldMGiD3KYDXBtV-psV2U25imTGlCV10AbhTBfQeE12LJY"/>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center z-10 order-2">
+          <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg shadow-primary/20">2</div>
+        </div>
+        <div class="w-full md:w-1/2 md:text-left order-2 md:order-3">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold mb-4 md:hidden">2</div>
+          <h2 class="font-headline text-3xl font-bold mb-4 tracking-tight">02. Functional Materials &amp; Surfaces</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            We engineer surface properties to achieve specific technical benchmarks, focusing on interfacial dynamics and structural modification at the micro and nano scale.
+          </p>
+          <ul class="space-y-2 text-sm text-on-surface-variant font-medium inline-block text-left">
+            <li class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+              <span>Micro-/Nano-structures &amp; Interfacial control</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+              <span>Low friction &amp; wear resistance</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+              <span>Superhydrophilic / Superhydrophobic surfaces</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+              <span>High surface charge density &amp; sensitivity</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div class="w-full md:w-1/2 md:text-right order-2 md:order-1">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold mb-4 md:hidden">3</div>
+          <h2 class="font-headline text-3xl font-bold mb-4 tracking-tight">03. Device Development</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            Final application stage where engineered surfaces and materials are integrated into robust, functional devices designed for next-generation sensing and energy solutions.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 bg-primary rounded-xl text-on-primary text-left">
+              <span class="material-symbols-outlined block mb-2">bolt</span>
+              <h3 class="font-bold text-sm uppercase tracking-wider mb-1">Energy Harvesters</h3>
+              <p class="text-xs opacity-80 leading-relaxed">Converting ambient energy into electrical power via nanostructured interfaces.</p>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded-xl text-left border border-outline-variant">
+              <span class="material-symbols-outlined block mb-2 text-primary">sensors</span>
+              <h3 class="font-bold text-sm uppercase tracking-wider mb-1 text-on-surface">Functional Sensors</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">High-selectivity detection for chemical and physical stimuli.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center z-10 order-2">
+          <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg shadow-primary/20">3</div>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-3">
+          <div class="rounded-xl overflow-hidden shadow-xl aspect-video bg-slate-100">
+            <img alt="Chemical sensor on printed circuit board" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXSndvbW9ouCaLM4FLyKg7-F4L5vceRQ5mOY2Cb3pwYPh5AsxhEWUeXy9lnaEG9HrhQ6Zp6zn0pTDTF-XVi_yHIqFne2g0cWZNRzr2QXijIZ6ATt0gHF2pjWWuEUfW9E1cnnSX5kWl5g1cBLQFeotQKhWYxOu_FWXCwyVkEe7Du-dTHScAAEXWPkHlCqeTKiCwL2qfXkV-QAWIFAq3Uqd9gjJbBRC0oY58rj8iKzSJScchrSHw8t28goE50UypVvxlVskEspfzmU4"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Research Themes Section -->
+  <section class="max-w-6xl mx-auto px-8 mb-32">
+    <div class="text-center mb-12">
+      <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">Research Themes</h2>
+      <p class="text-on-surface-variant">Our research area broadly falls into the following themes:</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-8 bg-surface-container-low rounded-2xl border border-outline-variant hover:border-primary transition-colors text-center group">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-primary text-3xl">layers</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold text-on-surface leading-tight">Functional materials and surfaces</h3>
+      </div>
+      <div class="p-8 bg-surface-container-low rounded-2xl border border-outline-variant hover:border-primary transition-colors text-center group">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-primary text-3xl">grid_view</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold text-on-surface leading-tight">Micro/nano-materials and composite designs</h3>
+      </div>
+      <div class="p-8 bg-surface-container-low rounded-2xl border border-outline-variant hover:border-primary transition-colors text-center group">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-primary text-3xl">settings_input_component</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold text-on-surface leading-tight">Material-based device development and its applications</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- On-going Research Section -->
+  <section class="max-w-6xl mx-auto px-8 mb-32">
+    <div class="text-center mb-16">
+      <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">On-going Research</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">experiment</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Metal-organic framework (MOF) based self-powered chemical sensors</h3>
+          <ul class="space-y-1">
+            <li class="text-sm text-on-surface-variant flex items-start gap-2"><span class="text-primary mt-1 text-[10px]">•</span><span>Understanding the properties of MOFs under various atmospheric environments</span></li>
+            <li class="text-sm text-on-surface-variant flex items-start gap-2"><span class="text-primary mt-1 text-[10px]">•</span><span>Development of MOF-based chemical sensors that do not require external power</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">hive</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Hybrid Composites and nano-weaving using MOFs</h3>
+          <p class="text-sm text-on-surface-variant">Exploration of the mechanical properties of MOFs and their potential applications in the mechanical field</p>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">psychology</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Theoretical analysis of TENGs</h3>
+          <p class="text-sm text-on-surface-variant">Understanding, modeling, and verifying the theories behind the TENG mechanism</p>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">print</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Mechanical analysis of 3D printing composite materials</h3>
+          <ul class="space-y-1">
+            <li class="text-sm text-on-surface-variant flex items-start gap-2"><span class="text-primary mt-1 text-[10px]">•</span><span>Understanding the surface properties of various 3D printing composite materials</span></li>
+            <li class="text-sm text-on-surface-variant flex items-start gap-2"><span class="text-primary mt-1 text-[10px]">•</span><span>Development and fabrication of devices through 3D printing</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">water_drop</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Water harvesting from humidity — MOF-based water harvesting</h3>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">battery_charging_full</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Metal-organic framework (MOF) based batteries</h3>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">watch_button_press</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Wearable sensors and actuators</h3>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">electric_bolt</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface mb-2">Various Energy Harvesting Devices</h3>
+          <p class="text-sm text-on-surface-variant">TENG, Flexoelectric, Hydrovoltaic, etc.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="mt-16 pt-12 pb-12 border-t border-slate-100 w-full text-center px-8">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
+    <p class="text-xs text-slate-400 mb-1">Advanced Surface Devices Research Lab</p>
+    <p class="text-xs text-slate-400 mb-4">Kumoh National Institute of Technology, Gumi, South Korea</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="index.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Home</a>
+      <a href="research.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Research</a>
+      <a href="publications.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Publications</a>
+      <a href="members.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Members</a>
+      <a href="gallery.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Gallery</a>
+      <a href="contact.html" class="text-xs text-slate-400 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-slate-300">&copy; 2026 ASDR Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>
+
+</body>
+</html>
