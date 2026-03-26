@@ -17,7 +17,7 @@
           "on-surface-variant": "#3e4949", "on-primary": "#ffffff",
           "surface": "#faf9f9", "background": "#faf9f9",
           "primary": "#00666b", "outline": "#6e797a",
-          "surface-container-low": "#f4f3f3", "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#f4f3f3",
         },
         fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
         borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
@@ -26,13 +26,12 @@
   }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap');
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  body { margin: 0; padding: 0; background-color: #ffffff; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .drive-frame { border: none; width: 100%; border-radius: 0.75rem; overflow: hidden; background: #f4f3f3; }
+
   .glass-nav { background-color: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   .nav-link { position: relative; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; color: #3e4949; transition: color 0.2s; }
   .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00666b; transition: width 0.2s; }
@@ -41,13 +40,61 @@
   .nav-link.active { color: #00666b; }
   .nav-link.active::after { width: 100%; }
   .dropdown { position: relative; }
-  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 160px; z-index: 100; overflow: hidden; }
-  .dropdown:hover .dropdown-menu { display: block; }
-  .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0f0f0; border-radius: 0.75rem; box-shadow: 0 8px 24px -4px rgba(0,0,0,0.10); min-width: 180px; z-index: 100; overflow: hidden; padding: 4px 0; }
+  .dropdown-menu.open { display: block; }
+  .dropdown-menu a { display: block; padding: 0.65rem 1.2rem; font-size: 0.8rem; font-weight: 500; color: #3e4949; transition: background 0.15s, color 0.15s; white-space: nowrap; }
   .dropdown-menu a:hover { background: #f4f3f3; color: #00666b; }
+
+  .masonry { columns: 2; column-gap: 12px; }
+  @media (min-width: 640px)  { .masonry { columns: 3; } }
+  @media (min-width: 1024px) { .masonry { columns: 4; } }
+
+  .masonry-item { break-inside: avoid; margin-bottom: 12px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; position: relative; background: #f0f0f0; }
+  .masonry-item img { width: 100%; display: block; transition: transform 0.5s ease, filter 0.3s ease; opacity: 0; }
+  .masonry-item img.loaded { opacity: 1; transition: opacity 0.4s ease, transform 0.5s ease, filter 0.3s ease; }
+  .masonry-item:hover img { transform: scale(1.04); filter: brightness(0.88); }
+  .masonry-item::after {
+    content: "\e8ff";
+    font-family: 'Material Symbols Outlined';
+    font-size: 28px; color: white;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0; transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .masonry-item:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+  .skeleton-block { background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 0.75rem; margin-bottom: 12px; break-inside: avoid; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(10,10,10,0.95); align-items: center; justify-content: center; }
+  #lightbox.open { display: flex; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  #lightbox-img { max-width: min(92vw, 1100px); max-height: 90vh; object-fit: contain; border-radius: 6px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transition: opacity 0.2s; }
+  #lightbox-close { position: absolute; top: 18px; right: 22px; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 36px; line-height: 1; transition: color 0.2s; user-select: none; }
+  #lightbox-close:hover { color: white; }
+  .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.55); cursor: pointer; font-size: 52px; line-height: 1; padding: 0 18px; transition: color 0.2s; user-select: none; font-weight: 200; }
+  .lb-arrow:hover { color: white; }
+  #lb-prev { left: 0; }
+  #lb-next { right: 0; }
+  #lb-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.1em; }
+
+  .section-tab { transition: all 0.2s; cursor: pointer; background: none; border: none; outline: none; }
+  .section-tab.active { color: #00666b; border-bottom: 2px solid #00666b; }
+  .section-tab:not(.active) { color: #6e797a; border-bottom: 2px solid transparent; }
+  .section-tab:hover:not(.active) { color: #3e4949; }
 </style>
 </head>
 <body class="font-body text-on-surface bg-white no-scrollbar">
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <span id="lightbox-close" title="Close (Esc)">&times;</span>
+  <span class="lb-arrow" id="lb-prev">&#8249;</span>
+  <img id="lightbox-img" src="" alt="Gallery photo"/>
+  <span class="lb-arrow" id="lb-next">&#8250;</span>
+  <div id="lb-counter"></div>
+</div>
 
 <!-- Nav -->
 <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-slate-100">
@@ -58,15 +105,17 @@
     <div class="hidden md:flex items-center gap-8">
       <a href="index.html" class="nav-link">Home</a>
       <a href="research.html" class="nav-link">Research</a>
-      <a href="publications.html" class="nav-link">Publications</a>
       <div class="dropdown">
-        <span class="nav-link" style="cursor:default">Members</span>
-        <div class="dropdown-menu">
+        <button id="members-dropdown-trigger" class="nav-link" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px;">
+          Members <span style="font-size:10px;opacity:0.6;">&#9660;</span>
+        </button>
+        <div id="members-dropdown-menu" class="dropdown-menu">
           <a href="pi.html">Principal Investigator</a>
           <a href="members.html">Current Members</a>
           <a href="alumni.html">Alumni</a>
         </div>
       </div>
+      <a href="publications.html" class="nav-link">Publications</a>
       <a href="gallery.html" class="nav-link active">Gallery</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </div>
@@ -78,8 +127,7 @@
     <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
       <a href="index.html" class="nav-link">Home</a>
       <a href="research.html" class="nav-link">Research</a>
-      <a href="publications.html" class="nav-link">Publications</a>
-      <div class="pl-0">
+      <div>
         <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-2">Members</span>
         <div class="pl-4 flex flex-col gap-2">
           <a href="pi.html" class="nav-link text-sm">Principal Investigator</a>
@@ -87,76 +135,71 @@
           <a href="alumni.html" class="nav-link text-sm">Alumni</a>
         </div>
       </div>
+      <a href="publications.html" class="nav-link">Publications</a>
       <a href="gallery.html" class="nav-link active">Gallery</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </div>
   </div>
 </nav>
 
-<main class="max-w-5xl mx-auto px-6 pt-32 pb-16 md:px-12 md:pb-20 bg-white">
-  <header class="mb-20 max-w-2xl">
-    <span class="text-[10px] font-label font-bold tracking-[0.3em] text-primary uppercase mb-4 block">Gallery</span>
-    <h2 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight mb-6">
+<main class="max-w-6xl mx-auto px-6 pt-32 pb-20 md:px-12">
+
+  <header class="mb-14 max-w-xl">
+    <span class="text-[10px] font-label font-bold tracking-[0.3em] text-primary uppercase mb-3 block">Gallery</span>
+    <h2 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight mb-5">
       Lab in <span class="text-primary italic">Photos.</span>
     </h2>
-    <div class="h-1 w-24 bg-primary rounded-full mb-8"></div>
-    <p class="text-base text-on-surface-variant font-light leading-relaxed">
-      Photos from conferences, lab events, and everyday moments in the ASDR Lab.
+    <div class="h-1 w-20 bg-primary rounded-full mb-5"></div>
+    <p class="text-sm text-on-surface-variant font-light leading-relaxed">
+      Conferences, lab events, and everyday moments — updated automatically from Google Drive.
     </p>
   </header>
 
-  <!-- Section 1: Conferences & Symposia -->
-  <section class="mb-24">
-    <div class="flex items-end justify-between mb-8">
-      <div>
-        <h3 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Conferences &amp; Symposia</h3>
-        <p class="text-xs text-outline font-label mt-1 tracking-widest">CONFERENCES &amp; PRESENTATIONS</p>
-      </div>
-      <a href="https://drive.google.com/drive/folders/1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY" target="_blank"
-         class="hidden md:flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
-        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
-      </a>
-    </div>
-    <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm">
-      <iframe class="drive-frame" height="480"
-        src="https://drive.google.com/embeddedfolderview?id=1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY#grid"
-        title="Conferences & Symposia"></iframe>
-    </div>
-    <div class="mt-3 flex md:hidden justify-end">
-      <a href="https://drive.google.com/drive/folders/1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY" target="_blank"
-         class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
-        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
-      </a>
-    </div>
-  </section>
+  <div class="flex border-b border-outline-variant/40 mb-10">
+    <button class="section-tab active px-6 py-3 text-sm font-bold uppercase tracking-wider"
+            onclick="switchSection('conferences', this)">Conferences</button>
+    <button class="section-tab px-6 py-3 text-sm font-bold uppercase tracking-wider"
+            onclick="switchSection('socials', this)">Lab Socials</button>
+  </div>
 
-  <!-- Section 2: Lab Socials & Traditions -->
-  <section class="mb-24">
-    <div class="flex items-end justify-between mb-8">
+  <div id="section-conferences">
+    <div class="flex items-center justify-between mb-8">
       <div>
-        <h3 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Lab Socials &amp; Traditions</h3>
-        <p class="text-xs text-outline font-label mt-1 tracking-widest">LAB EVENTS &amp; GATHERINGS</p>
+        <h3 class="text-lg font-headline font-bold text-on-surface">Conferences &amp; Symposia</h3>
+        <p class="text-xs text-outline mt-0.5 tracking-widest uppercase">Presentations &amp; Academic Events</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY" target="_blank"
+         class="flex items-center gap-1.5 text-xs text-primary font-semibold hover:underline">
+        <span class="material-symbols-outlined text-sm">folder_open</span>Open in Drive
+      </a>
+    </div>
+    <div id="grid-conferences" class="masonry"></div>
+    <div id="empty-conferences" class="hidden text-center py-24 text-on-surface-variant">
+      <span class="material-symbols-outlined text-5xl opacity-30 mb-3 block">photo_library</span>
+      <p class="text-sm">No photos yet.</p>
+    </div>
+  </div>
+
+  <div id="section-socials" class="hidden">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h3 class="text-lg font-headline font-bold text-on-surface">Lab Socials &amp; Traditions</h3>
+        <p class="text-xs text-outline mt-0.5 tracking-widest uppercase">Events &amp; Gatherings</p>
       </div>
       <a href="https://drive.google.com/drive/folders/1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv" target="_blank"
-         class="hidden md:flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
-        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
+         class="flex items-center gap-1.5 text-xs text-primary font-semibold hover:underline">
+        <span class="material-symbols-outlined text-sm">folder_open</span>Open in Drive
       </a>
     </div>
-    <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm">
-      <iframe class="drive-frame" height="480"
-        src="https://drive.google.com/embeddedfolderview?id=1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv#grid"
-        title="Lab Socials & Traditions"></iframe>
+    <div id="grid-socials" class="masonry"></div>
+    <div id="empty-socials" class="hidden text-center py-24 text-on-surface-variant">
+      <span class="material-symbols-outlined text-5xl opacity-30 mb-3 block">photo_library</span>
+      <p class="text-sm">No photos yet.</p>
     </div>
-    <div class="mt-3 flex md:hidden justify-end">
-      <a href="https://drive.google.com/drive/folders/1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv" target="_blank"
-         class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline">
-        OPEN IN DRIVE <span class="material-symbols-outlined text-sm">open_in_new</span>
-      </a>
-    </div>
-  </section>
+  </div>
+
 </main>
 
-<!-- Footer -->
 <footer class="mt-8 pt-10 pb-10 border-t border-slate-100 w-full text-center px-8">
   <div class="max-w-7xl mx-auto">
     <p class="font-headline font-bold text-primary text-base mb-2">ASDR Lab</p>
@@ -174,25 +217,116 @@
   </div>
 </footer>
 
-
 <script>
-  // Mobile menu
+  const API_KEY = 'YOUR_GOOGLE_API_KEY'; // ← replace
+
+  const FOLDERS = {
+    conferences: '1dJAe9mPmnW9xVHwr_Mb8Q4a9JDYfHxtY',
+    socials:     '1k9PW9ABAWjxAMrReEWGPI6nhpVkDzuVv',
+  };
+
+  let LB = { images: [], idx: 0 };
+
+  function lbOpen(images, idx) { LB.images = images; LB.idx = idx; lbShow(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function lbShow() {
+    const el = document.getElementById('lightbox-img');
+    el.style.opacity = '0'; el.src = LB.images[LB.idx];
+    el.onload = () => { el.style.opacity = '1'; };
+    document.getElementById('lb-counter').textContent = `${LB.idx + 1} / ${LB.images.length}`;
+  }
+  function lbClose() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+  function lbStep(d) { LB.idx = (LB.idx + d + LB.images.length) % LB.images.length; lbShow(); }
+
+  document.getElementById('lightbox-close').addEventListener('click', lbClose);
+  document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); lbStep(-1); });
+  document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); lbStep(1); });
+  document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target.id === 'lightbox') lbClose(); });
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowLeft') lbStep(-1);
+    if (e.key === 'ArrowRight') lbStep(1);
+  });
+
+  function showSkeletons(gridEl) {
+    gridEl.innerHTML = '';
+    [180,240,160,200,260,180,220,160].forEach(h => {
+      const d = document.createElement('div');
+      d.className = 'skeleton-block'; d.style.height = h + 'px';
+      gridEl.appendChild(d);
+    });
+  }
+
+  async function fetchDrivePhotos(folderId) {
+    const q   = encodeURIComponent(`'${folderId}' in parents and mimeType contains 'image/' and trashed = false`);
+    const fld = encodeURIComponent('files(id,name,mimeType,thumbnailLink)');
+    const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=${fld}&orderBy=name&pageSize=200&key=${API_KEY}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.status);
+    return (await res.json()).files || [];
+  }
+
+  function buildMasonryItem(file, images, idx) {
+    const thumb = file.thumbnailLink
+      ? file.thumbnailLink.replace('=s220', '=s1200')
+      : `https://drive.google.com/thumbnail?id=${file.id}&sz=w1200`;
+    const full = `https://lh3.googleusercontent.com/d/${file.id}`;
+    images.push(full);
+    const div = document.createElement('div');
+    div.className = 'masonry-item';
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = thumb;
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => { img.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w800`; });
+    div.appendChild(img);
+    div.addEventListener('click', () => lbOpen(images, idx));
+    return div;
+  }
+
+  async function loadSection(key) {
+    const gridEl  = document.getElementById(`grid-${key}`);
+    const emptyEl = document.getElementById(`empty-${key}`);
+    showSkeletons(gridEl);
+    try {
+      const files = await fetchDrivePhotos(FOLDERS[key]);
+      gridEl.innerHTML = '';
+      if (!files.length) { gridEl.classList.add('hidden'); emptyEl.classList.remove('hidden'); return; }
+      const images = [];
+      files.forEach((f, i) => gridEl.appendChild(buildMasonryItem(f, images, i)));
+    } catch (err) {
+      console.warn('Drive API unavailable, fallback:', err);
+      gridEl.innerHTML = `
+        <div style="column-span:all" class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm">
+          <iframe style="border:none;width:100%;background:#f4f3f3;border-radius:0.75rem;" height="520"
+            src="https://drive.google.com/embeddedfolderview?id=${FOLDERS[key]}#grid" title="Gallery"></iframe>
+        </div>`;
+      gridEl.style.cssText = 'display:block';
+    }
+  }
+
+  const loaded = {};
+  function switchSection(key, btn) {
+    document.querySelectorAll('[id^="section-"]').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.section-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(`section-${key}`).classList.remove('hidden');
+    btn.classList.add('active');
+    if (!loaded[key]) { loaded[key] = true; loadSection(key); }
+  }
+
   const _btn = document.getElementById('mobile-menu-btn');
   const _menu = document.getElementById('mobile-menu');
   if (_btn) _btn.addEventListener('click', () => _menu.classList.toggle('hidden'));
-
-  // Members dropdown - click toggle
-  const dropdownTrigger = document.getElementById('members-dropdown-trigger');
-  const dropdownMenu = document.getElementById('members-dropdown-menu');
-  if (dropdownTrigger && dropdownMenu) {
-    dropdownTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle('open');
-    });
-    document.addEventListener('click', () => {
-      dropdownMenu.classList.remove('open');
-    });
-    dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
+  const dt = document.getElementById('members-dropdown-trigger');
+  const dm = document.getElementById('members-dropdown-menu');
+  if (dt && dm) {
+    dt.addEventListener('click', (e) => { e.stopPropagation(); dm.classList.toggle('open'); });
+    document.addEventListener('click', () => dm.classList.remove('open'));
+    dm.addEventListener('click', (e) => e.stopPropagation());
   }
+
+  loaded.conferences = true;
+  loadSection('conferences');
 </script>
-</body></html>
+</body>
+</html>
