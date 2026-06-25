@@ -129,7 +129,7 @@
           </div>
           <div class="space-y-1">
             <h3 class="font-headline font-bold text-on-surface">E-mail</h3>
-            <a class="text-primary-container font-medium hover:underline underline-offset-4 decoration-2 text-sm" href="mailto:jihoon@kumoh.ac.kr">jihoon@kumoh.ac.kr</a>
+            <a class="text-primary-container font-medium hover:underline underline-offset-4 decoration-2 text-sm" href="#" data-eml-user="jihoon" data-eml-domain="kumoh.ac.kr"><span class="eml"></span></a>
           </div>
         </div>
 
@@ -153,7 +153,7 @@
       </div>
 
       <div>
-        <a class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary px-7 py-3.5 rounded-xl font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform duration-200" href="mailto:jihoon@kumoh.ac.kr">
+        <a class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary px-7 py-3.5 rounded-xl font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform duration-200" href="#" data-eml-user="jihoon" data-eml-domain="kumoh.ac.kr">
           <span>Send Message</span>
           <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </a>
@@ -224,4 +224,5 @@
     dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
   }
 </script>
+<script src="email-protect.js" defer></script>
 </body></html>

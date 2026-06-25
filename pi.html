@@ -150,8 +150,8 @@
           <div class="content-card p-6 rounded-xl">
             <span class="text-[10px] font-label uppercase tracking-[0.05em] text-primary font-semibold mb-3 block">Contact Information</span>
             <div class="space-y-4">
-              <a class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary transition-colors" href="mailto:jihoon@kumoh.ac.kr">
-                <span class="material-symbols-outlined text-sm">mail</span> jihoon@kumoh.ac.kr
+              <a class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary transition-colors" href="#" data-eml-user="jihoon" data-eml-domain="kumoh.ac.kr">
+                <span class="material-symbols-outlined text-sm">mail</span> <span class="eml"></span>
               </a>
               <div class="flex items-start gap-3 text-sm text-on-surface-variant">
                 <span class="material-symbols-outlined text-sm mt-0.5">location_on</span>
@@ -263,4 +263,5 @@
     dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
   }
 </script>
+<script src="email-protect.js" defer></script>
 </body></html>
